@@ -2,22 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.View.MainPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                x:Name="HelloLabel"
+                Margin="20"
+                MaxLines="10"
+                Padding="10"
+                HeightRequest="50"
+                BackgroundColor="Red"
+                Text="{Binding FullName}"
+                FontAttributes="Bold"
+                FontSize="Small"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                TextColor="Yellow"
+                VerticalTextAlignment="Center"></Label>
+            <Image
+                x:Name="BigFlower"
+                HeightRequest="200"
+                IsVisible="True"
+                Opacity=".25"
+                HorizontalOptions="Center"
+                RotationX="45"
+                Source="{Binding FavoriteFlower}"/>
+            <ImageButton
+                BorderColor="Black"
+                BorderWidth="2"
+                MaximumHeightRequest="75"
+                MaximumWidthRequest="75"
+                Padding="5"
+                Source="{Binding FavoriteFlower}"
+                Command="{Binding ToggleFlowerVisibilityCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 
-    <VerticalStackLayout>
-        <Label 
-            x:Name="HelloLabel"
-            Margin="20"
-            BackgroundColor="Red"
-            Text="{Binding FullName}"
-            FontAttributes="Bold"
-            FontSize="Small"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center"
-            TextColor="Yellow"
-            VerticalTextAlignment="Center"></Label>
-        <Image
-            HeightRequest="200"
-            HorizontalOptions="Center"
-            Source="{Binding FavoriteFlower}"/>
-    </VerticalStackLayout>
 </ContentPage>

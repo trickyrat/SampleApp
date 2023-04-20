@@ -1,31 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace SampleApp.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
-    //[ObservableProperty]
-    private string _fullName;
+    [ObservableProperty] private string fullName;
+    [ObservableProperty] private string favoriteFlower = "flower.jpg";
+    [ObservableProperty] private bool flowerIsVisible = true;
 
-    public string FullName
+    [RelayCommand]
+    private void ToggleFlowerVisibility()
     {
-        get { return _fullName; }
-        set
-        {
-            _fullName = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _favoriteFlower;
-
-    public string FavoriteFlower
-    {
-        get { return _favoriteFlower; }
-        set
-        {
-            _favoriteFlower = value;
-            OnPropertyChanged();
-        }
+        FlowerIsVisible = !FlowerIsVisible;
     }
 }
