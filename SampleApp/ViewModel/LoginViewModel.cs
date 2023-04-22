@@ -15,7 +15,7 @@ public partial class LoginViewModel : ObservableObject
     [RelayCommand]
     private async void Submit()
     {
-        for (double i = 0.0; i < 1.0; i += 0.1)
+        for (double i = 0.0; i < 1.0; i += 0.25)
         {
             await LoginPage.LoginProgressBar.ProgressTo(i, 500, Easing.Linear);
         }
